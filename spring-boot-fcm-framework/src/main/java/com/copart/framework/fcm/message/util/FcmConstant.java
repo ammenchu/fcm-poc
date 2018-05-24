@@ -4,9 +4,9 @@ import java.util.logging.Logger;
 
 import com.copart.framework.fcm.extension.FcmPacketExtension;
 
-public final class Constants {
+public final class FcmConstant {
 
-	private static Logger logger = Logger.getLogger(Constants.class.getSimpleName());
+	private static Logger logger = Logger.getLogger(FcmConstant.class.getSimpleName());
 
 	static {
 		// Inform about default port

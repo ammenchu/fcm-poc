@@ -1,6 +1,6 @@
 package com.copart.framework.fcm.source.viewer;
 
-import static com.copart.framework.fcm.message.util.Constants.FCM_NAMESPACE;
+import static com.copart.framework.fcm.message.util.FcmConstant.FCM_NAMESPACE;
 
 import java.util.Map;
 

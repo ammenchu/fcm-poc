@@ -12,9 +12,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class MessageUtils {
 
-	// private static final TimeBasedGenerator gen =
-	// Generators.timeBasedGenerator(EthernetAddress.fromInterface());
-
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 
 	public static Map<String, Object> toAttributeMap(Object object) {

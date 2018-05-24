@@ -1,9 +1,9 @@
 package com.copart.framework.fcm.client;
 
-import static com.copart.framework.fcm.message.util.Constants.DOMAIN;
-import static com.copart.framework.fcm.message.util.Constants.FCM_ELEMENT;
-import static com.copart.framework.fcm.message.util.Constants.FCM_NAMESPACE;
-import static com.copart.framework.fcm.message.util.Constants.HOST;
+import static com.copart.framework.fcm.message.util.FcmConstant.DOMAIN;
+import static com.copart.framework.fcm.message.util.FcmConstant.FCM_ELEMENT;
+import static com.copart.framework.fcm.message.util.FcmConstant.FCM_NAMESPACE;
+import static com.copart.framework.fcm.message.util.FcmConstant.HOST;
 import static org.jivesoftware.smack.filter.StanzaTypeFilter.MESSAGE;
 
 import java.util.List;
@@ -33,7 +33,7 @@ import com.copart.framework.fcm.extension.FcmExtensionProvider;
 import com.copart.framework.fcm.extension.FcmPacketExtension;
 import com.copart.framework.fcm.message.out.DownstreamMessageRequest;
 import com.copart.framework.fcm.message.util.BackOffStrategy;
-import com.copart.framework.fcm.message.util.Constants;
+import com.copart.framework.fcm.message.util.FcmConstant;
 import com.copart.framework.fcm.message.util.MessageUtils;
 
 @Component
@@ -86,7 +86,7 @@ public final class FcmCcsClient implements ReconnectionListener, PingFailedListe
 		this.serverKey = serverKey;
 		this.senderId = senderId;
 		this.debuggable = debuggable;
-		this.username = this.senderId + "@" + Constants.FCM_SERVER_CONNECTION_ENDPOINT;
+		this.username = this.senderId + "@" + FcmConstant.FCM_SERVER_CONNECTION_ENDPOINT;
 	}
 
 	public FcmCcsClient() {
@@ -101,7 +101,7 @@ public final class FcmCcsClient implements ReconnectionListener, PingFailedListe
 	@SuppressWarnings("deprecation")
 	public void connect() {
 		try {
-			config = XMPPTCPConnectionConfiguration.builder().setPort(Constants.FCM_PORT)
+			config = XMPPTCPConnectionConfiguration.builder().setPort(FcmConstant.FCM_PORT)
 					// .setHostAddress(InetAddress.getByName(HOST_ADDRESS))
 					.setHost(HOST) // --DO NOT UNCOMMENT
 					.setXmppDomain(DOMAIN)
