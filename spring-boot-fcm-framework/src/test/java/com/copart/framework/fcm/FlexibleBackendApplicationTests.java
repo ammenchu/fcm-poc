@@ -1,4 +1,4 @@
-package com.copart.fcm.framework;
+package com.copart.framework.fcm;
 
 import org.junit.Ignore;
 import org.junit.Test;
