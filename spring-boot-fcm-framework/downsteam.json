@@ -1,0 +1,10 @@
+{
+	"notificationMessage": {
+		"notification": {
+			"title": "FCM Notification",
+			"body": "Happy Message!"
+		}
+	},
+	"to": "cRbq9FBn4kE:APA91bEXIEHyIhHPwywSOKhgQjrOA1OR6StgaSSpR8uQ5auvgvXVVrFEsXeKcG8hQZ_QgquE0gds4TvM1YsRUvvCyLLW-0pdXHyWT2AZqRjk1THvOBKGtcpkbOTGsZ2TD4yshJKcr2s7",
+	"messageType": 22
+}
