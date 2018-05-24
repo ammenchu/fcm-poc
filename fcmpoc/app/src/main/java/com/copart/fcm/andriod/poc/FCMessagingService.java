@@ -37,10 +37,11 @@ public class FCMessagingService extends FirebaseMessagingService {
     }
 
     private void sendNotifications(RemoteMessage remoteMessage) {
-        String title = remoteMessage.getNotification().getTitle();
-        String body = remoteMessage.getNotification().getBody();
+        String title = remoteMessage.getNotification() != null ? remoteMessage.getNotification().getTitle() : "Empty Title";
+        String body = remoteMessage.getNotification() != null ? remoteMessage.getNotification().getBody() : "Empty Body";
         // preparing the notifications
         Intent intent = new Intent(this, MainActivity.class);
+        // intent.putExtra("message_id", remoteMessage.getMessageId());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
@@ -48,7 +49,7 @@ public class FCMessagingService extends FirebaseMessagingService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.drawable.ic_launcher_background);
-        builder.setContentTitle(title);
+        builder.setContentTitle(getString(R.string.app_name));
         builder.setContentText(body);
         builder.setAutoCancel(true);
         builder.setSound(defaultSoundUri);
@@ -57,8 +58,7 @@ public class FCMessagingService extends FirebaseMessagingService {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel notificationChannel = new NotificationChannel(title + "-0", title, importance);
+            NotificationChannel notificationChannel = new NotificationChannel(title + "-0", title, NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setDescription(body);
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
