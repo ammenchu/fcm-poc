@@ -101,13 +101,17 @@ public final class FcmCcsClient implements ReconnectionListener, PingFailedListe
 	@SuppressWarnings("deprecation")
 	public void connect() {
 		try {
-			config = XMPPTCPConnectionConfiguration.builder().setPort(FcmConstant.FCM_PORT)
+			config = XMPPTCPConnectionConfiguration.builder()
+					.setPort(FcmConstant.FCM_PORT)
 					// .setHostAddress(InetAddress.getByName(HOST_ADDRESS))
 					.setHost(HOST) // --DO NOT UNCOMMENT
 					.setXmppDomain(DOMAIN)
 					.setSecurityMode(/* Default; Explicit setting for emphasis */SecurityMode.ifpossible)
-					.setSendPresence(false).setUsernameAndPassword(username, serverKey)
-					.setSocketFactory(SSLSocketFactory.getDefault()).setDebuggerEnabled(debuggable).build();
+					.setSendPresence(false)
+					.setUsernameAndPassword(username, serverKey)
+					.setSocketFactory(SSLSocketFactory.getDefault())
+					.setDebuggerEnabled(debuggable)
+				.build();
 
 			connection = new XMPPTCPConnection(config);
 
