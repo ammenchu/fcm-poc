@@ -3,7 +3,7 @@ package com.copart.framework.fcm.client;
 public class FcmStanzaTask implements Runnable {
 
 	private FcmCcsClient client;
-	private String jsonMsg;
+	private String message;
 
 	public FcmStanzaTask(FcmCcsClient client) {
 		if (client == null) {
@@ -12,28 +12,28 @@ public class FcmStanzaTask implements Runnable {
 		this.client = client;
 	}
 
-	public FcmStanzaTask(FcmCcsClient client, String jsonMsg) {
+	public FcmStanzaTask(FcmCcsClient client, String message) {
 		this(client);
-		this.jsonMsg = jsonMsg;
+		this.message = message;
 	}
 
 	public FcmCcsClient getClient() {
 		return client;
 	}
 
-	public String getJsonMsg() {
-		return jsonMsg;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setJsonMsg(String jsonMsg) {
-		this.jsonMsg = jsonMsg;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	@Override
 	public void run() {
-		if (jsonMsg == null || jsonMsg.isEmpty()) {
+		if (message == null || message.isEmpty()) {
 			throw new RuntimeException("Message to be sent cannot be null or empty.");
 		}
-		client.send(jsonMsg);
+		client.send(message);
 	}
 }

@@ -56,9 +56,9 @@ public class FcmStanzaListener implements StanzaListener {
 		Map<String, Object> sourceAsMap = fcmMessageSourceViewer.getSourceAsMap();
 		String sourceAsString = fcmMessageSourceViewer.getSourceAsJSONString();
 
-		String messageTypeString = (String) sourceAsMap.get("message_type");
+		String messageType = (String) sourceAsMap.get("message_type");
 
-		if (messageTypeString == null) {
+		if (messageType == null) {
 			
 			// UpstreamMessage type
 			UpstreamMessage response = MessageUtils.fromStringToMessage(sourceAsString, UpstreamMessage.class);
@@ -67,7 +67,7 @@ public class FcmStanzaListener implements StanzaListener {
 
 			upStreamMessageListener.onReceiveMessage(response);
 
-		} else if (messageTypeString.equals("ack") || messageTypeString.equals("nack")) {
+		} else if (messageType.equals("ack") || messageType.equals("nack")) {
 			
 			// A DownstreamMessageResponse type message
 			DownstreamMessage response = MessageUtils.fromStringToMessage(sourceAsString, DownstreamMessage.class);
@@ -76,7 +76,7 @@ public class FcmStanzaListener implements StanzaListener {
 
 			downstreamMessageListener.onReceiveMessage(response);
 
-		} else if (messageTypeString.equals("receipt") || messageTypeString.equals("control")) {
+		} else if (messageType.equals("receipt") || messageType.equals("control")) {
 			
 			// Ccs to App server messages, i.e, DeliveryReceiptOrControlMessage type
 			DeliveryReceiptOrControlMessage response = MessageUtils.fromStringToMessage(sourceAsString,
