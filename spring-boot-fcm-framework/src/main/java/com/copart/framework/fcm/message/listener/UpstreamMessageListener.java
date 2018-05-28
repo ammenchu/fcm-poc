@@ -19,12 +19,12 @@ public class UpstreamMessageListener extends DeferringFcmMessageListener<Upstrea
 	@Override
 	public void onReceiveMessage(UpstreamMessage upstreamMessage) {
 		super.onReceiveMessage(upstreamMessage);
-		logger.info("=== Upstream message received: \n" + this.viewSource().toString());
+		logger.info("<<<< Upstream message received: <<<<< \n" + this.viewSource().toString());
 
 		processUpstreamMessage(upstreamMessage);
 
 		// Send ACK to Ccs
-		logger.info("=== Sending Ack to Ccs for the Upstream Message received... === ");
+		logger.info(">>>> Sending Ack to Ccs for the Upstream Message received... >>>> ");
 //		FcmCcsClient.getInstance().sendAsync(upstreamMessage.getAcknowledgement().toString());
 		fcmCcsClient.sendAsync(upstreamMessage.getAcknowledgement().toString());
 	}

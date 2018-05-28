@@ -36,7 +36,7 @@ public class DownstreamMessageListener extends DeferringFcmMessageListener<Downs
 	 * Handles a NACK message from FCM
 	 */
 	public void handleNackReceipt(DownstreamMessage downstreamMessageResponse) {
-		logger.info("=== Nack receipt received for a Downstream Message sent. ===");
+		logger.info("<<<< Nack receipt received for a Downstream Message sent. <<<<");
 		String errorCode = downstreamMessageResponse.getError();
 
 		if (errorCode == null) {
@@ -81,7 +81,7 @@ public class DownstreamMessageListener extends DeferringFcmMessageListener<Downs
 	 * Handles an ACK message from FCM
 	 */
 	public void handleAckReceipt(DownstreamMessage downstreamMessageResponse) {
-		logger.info("=== Ack receipt received for a Downstream Message sent. ===");
+		logger.info("<<<< Ack receipt received for a Downstream Message sent. <<<<");
 	}
 
 	public void handleServerFailure(DownstreamMessage downstreamMessageResponse) {

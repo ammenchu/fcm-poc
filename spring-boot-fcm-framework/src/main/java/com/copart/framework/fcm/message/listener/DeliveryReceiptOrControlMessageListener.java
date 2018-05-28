@@ -43,7 +43,7 @@ public class DeliveryReceiptOrControlMessageListener
 	 * received a particular message)
 	 */
 	protected void handleDeliveryReceipt(DeliveryReceiptOrControlMessage deliveryReceiptOrControlMessage) {
-		logger.info("=== Delivery Receipt received. ===");
+		logger.info("<<<< Delivery Receipt received. <<<<");
 	}
 
 	protected void handleConnectionDrainingFailure() {
