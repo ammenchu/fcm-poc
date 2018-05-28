@@ -3,7 +3,6 @@ package com.copart.framework.fcm.endpoint;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,12 +32,6 @@ public class FcmDownstreamController {
 		return "Poc application: FCM downstrean and upstream using XMPP connection";
 	}
 	
-	@RequestMapping("/{number}")
-	@ResponseBody
-	String homeTest(@PathVariable Long number) {
-		return "value => "+number;
-	}
-
 	@RequestMapping(path = "/send", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody DeferredResult<DownstreamMessage> sendMessage(@RequestBody Message message) {
 
