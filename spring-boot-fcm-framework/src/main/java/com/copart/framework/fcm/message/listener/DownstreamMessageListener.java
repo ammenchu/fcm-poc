@@ -45,35 +45,35 @@ public class DownstreamMessageListener extends DeferringFcmMessageListener<Downs
 		}
 
 		switch (errorCode) {
-		case INVALID_JSON:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case BAD_REGISTRATION:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case DEVICE_UNREGISTERED:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case BAD_ACK:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case SERVICE_UNAVAILABLE:
-			handleServerFailure(downstreamMessage);
-			break;
-		case INTERNAL_SERVER_ERROR:
-			handleServerFailure(downstreamMessage);
-			break;
-		case DEVICE_MESSAGE_RATE_EXCEEDED:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case TOPICS_MESSAGE_RATE_EXCEEDED:
-			handleUnrecoverableFailure(downstreamMessage);
-			break;
-		case CONNECTION_DRAINING:
-			handleConnectionDrainingFailure();
-			break;
-		default:
-			logger.info("Received unknown FCM Error Code: " + errorCode);
+			case INVALID_JSON:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case BAD_REGISTRATION:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case DEVICE_UNREGISTERED:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case BAD_ACK:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case SERVICE_UNAVAILABLE:
+				handleServerFailure(downstreamMessage);
+				break;
+			case INTERNAL_SERVER_ERROR:
+				handleServerFailure(downstreamMessage);
+				break;
+			case DEVICE_MESSAGE_RATE_EXCEEDED:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case TOPICS_MESSAGE_RATE_EXCEEDED:
+				handleUnrecoverableFailure(downstreamMessage);
+				break;
+			case CONNECTION_DRAINING:
+				handleConnectionDrainingFailure();
+				break;
+			default:
+				logger.info("Received unknown FCM Error Code: " + errorCode);
 		}
 	}
 
